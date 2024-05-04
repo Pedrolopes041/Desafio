@@ -1,5 +1,6 @@
 import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
+import { MenuIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import {
   Menubar,
@@ -8,16 +9,21 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "./ui/menubar";
-import { MenuIcon } from "lucide-react";
 
 const Header = () => {
   return (
     <Card>
       <CardContent className="p-5 justify-between items-center flex flex-row">
-        <h2>Perfil</h2>
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>Usuário</AvatarFallback>
+        </Avatar>
+
         <Menubar>
           <MenubarMenu>
-            <MenubarTrigger><MenuIcon/></MenubarTrigger>
+            <MenubarTrigger>
+              <MenuIcon />
+            </MenubarTrigger>
             <MenubarContent>
               <MenubarItem>Perfil</MenubarItem>
               <MenubarItem>Editar</MenubarItem>
