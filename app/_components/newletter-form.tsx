@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Label } from "./ui/label";
 import {
   Form,
   FormControl,
@@ -19,16 +18,16 @@ import { Card, CardContent } from "./ui/card";
 
 const formSchema = z.object({
   nome: z.string().min(2, {
-    message: "nome deve ter no mínimo 2 caracteres.",
+    message: "Preencha o campo",
   }),
   idade: z.number().min(2, {
-    message: "idade deve ser maior que 18 anos.",
+    message: "Preencha o campo",
   }),
   endereco: z.string().min(2, {
-    message: "nome deve ter no mínimo 2 caracteres.",
+    message: "Preencha o campo",
   }),
   biografia: z.string().min(2, {
-    message: "nome deve ter no mínimo 2 caracteres.",
+    message: "Preencha o campo",
   }),
 });
 
@@ -37,7 +36,7 @@ const NewsletterForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       nome: "",
-      idade: undefined,
+      idade: 0,
       endereco: "",
       biografia: "",
     },
