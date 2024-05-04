@@ -15,6 +15,7 @@ import {
   FormLabel,
   FormMessage,
 } from "./ui/form";
+import { Card, CardContent } from "./ui/card";
 
 const formSchema = z.object({
   nome: z.string().min(2, {
@@ -47,66 +48,71 @@ const NewsletterForm = () => {
   }
 
   return (
-    <div className="w-full p-4 mt-4">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <Input id="picture" type="file" />
-          <FormField
-            control={form.control}
-            name="nome"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nome</FormLabel>
-                <FormControl>
-                  <Input placeholder="Nome" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="idade"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Idade</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="Idade" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="endereco"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Endereço</FormLabel>
-                <FormControl>
-                  <Input placeholder="Endereço" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="biografia"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Biografia</FormLabel>
-                <FormControl>
-                  <Input placeholder="Biografia" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Salvar</Button>
-        </form>
-      </Form>
-    </div>
+    <Card className="w-full p-4 mt-6">
+      <CardContent>
+        <Form {...form}>
+          <h2 className="text-center">Editar Perfil</h2>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="nome"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nome</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Nome" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="idade"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Idade</FormLabel>
+                  <FormControl>
+                    <Input type="number" placeholder="Idade" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="endereco"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Endereço</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Endereço" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="biografia"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Biografia</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Biografia" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Input id="picture" type="file" />
+            <Button variant="default" className="w-full" type="submit">
+              Salvar
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
 
