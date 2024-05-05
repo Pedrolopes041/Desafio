@@ -9,14 +9,17 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "./ui/menubar";
+import Link from "next/link";
 
 const Header = () => {
   return (
     <Card>
       <CardContent className="p-5 justify-between items-center flex flex-row">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>A</AvatarFallback>
+          <Link href="/">
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>A</AvatarFallback>
+          </Link>
         </Avatar>
 
         <Menubar>
@@ -25,8 +28,12 @@ const Header = () => {
               <MenuIcon />
             </MenubarTrigger>
             <MenubarContent>
-              <MenubarItem>Perfil</MenubarItem>
-              <MenubarItem>Editar</MenubarItem>
+              <Link href="/">
+                <MenubarItem>Perfil</MenubarItem>
+              </Link>
+              <Link href="/perfil">
+                <MenubarItem>Editar</MenubarItem>
+              </Link>
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
