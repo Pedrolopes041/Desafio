@@ -15,6 +15,17 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Card, CardContent } from "./ui/card";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "./ui/alert-dialog";
 
 const formSchema = z.object({
   nome: z.string().min(2, {
@@ -50,16 +61,19 @@ const NewsletterForm = () => {
     <Card className="w-full p-4 mt-6">
       <CardContent>
         <Form {...form}>
-          <h2 className="text-center">Editar Perfil</h2>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <h2 className="font-bold text-2xl">Edit Profile</h2>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8 mt-6"
+          >
             <FormField
               control={form.control}
               name="nome"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nome</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Nome" {...field} />
+                    <Input placeholder="Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -70,9 +84,9 @@ const NewsletterForm = () => {
               name="idade"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Idade</FormLabel>
+                  <FormLabel>Age</FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="Idade" {...field} />
+                    <Input type="number" placeholder="Age" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -83,9 +97,9 @@ const NewsletterForm = () => {
               name="endereco"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Endereço</FormLabel>
+                  <FormLabel>Address</FormLabel>
                   <FormControl>
-                    <Input placeholder="Endereço" {...field} />
+                    <Input placeholder="Address" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,18 +110,39 @@ const NewsletterForm = () => {
               name="biografia"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Biografia</FormLabel>
+                  <FormLabel>Biography</FormLabel>
                   <FormControl>
-                    <Input placeholder="Biografia" {...field} />
+                    <Input placeholder="Biography" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Input id="picture" type="file" />
-            <Button variant="default" className="w-full" type="submit">
-              Salvar
-            </Button>
+            <Input accept="image/*" id="picture" type="file" />
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="default" className="w-full" type="submit">
+                  Save
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Once cancelled, it will not be possible to reverse this
+                    action.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter className="flex flex-row gap-3">
+                  <AlertDialogCancel className=" mt-0 w-full">
+                    Cancel
+                  </AlertDialogCancel>
+                  <AlertDialogAction className="w-full">
+                    Continue
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </form>
         </Form>
       </CardContent>
