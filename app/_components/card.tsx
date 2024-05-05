@@ -5,11 +5,7 @@ import Link from "next/link";
 
 import { Pessoa } from "@prisma/client";
 
-interface PessoaProps {
-  PessoaId: Pessoa;
-}
-
-const CardItem = async ({ PessoaId }: PessoaProps) => {
+const CardItem = async () => {
   return (
     <Card className="mt-6">
       <CardContent className="mt-6 flex flex-col justify-center items-center">
@@ -26,31 +22,24 @@ const CardItem = async ({ PessoaId }: PessoaProps) => {
         <div className="mt-6 flex flex-col gap-6">
           <div className="space-x-4 rounded-md border p-4">
             <div>
-              <p className="text-sm font-medium leading-none">
-                {PessoaId.name}
-              </p>
+              <p className="text-sm font-medium leading-none"></p>
             </div>
           </div>
           <div className="space-x-4 rounded-md border p-4">
             <div>
               <p className="text-sm font-medium leading-none">
-                {PessoaId.age}
                 <span> anos</span>
               </p>
             </div>
           </div>
           <div className="space-x-4 rounded-md border p-4">
             <div>
-              <p className="text-sm font-medium leading-none">
-                {PessoaId.street}
-              </p>
+              <p className="text-sm font-medium leading-none"></p>
             </div>
           </div>
           <div className="space-x-4 rounded-md border p-4">
             <div>
-              <p className="text-sm font-medium leading-normal">
-                {PessoaId.biography}
-              </p>
+              <p className="text-sm font-medium leading-normal"></p>
             </div>
           </div>
           <Link href="/perfil" className="w-full">
