@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -31,7 +32,7 @@ const formSchema = z.object({
   nome: z.string().min(2, {
     message: "Preencha o campo",
   }),
-  idade: z.number().min(2, {
+  idade: z.coerce.number().min(2, {
     message: "Preencha o campo",
   }),
   endereco: z.string().min(2, {
@@ -43,6 +44,7 @@ const formSchema = z.object({
 });
 
 const NewsletterForm = () => {
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,6 +57,7 @@ const NewsletterForm = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    setIsAlertOpen(false);
   }
 
   return (
@@ -121,7 +124,7 @@ const NewsletterForm = () => {
             <Input accept="image/*" id="picture" type="file" />
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button variant="default" className="w-full" type="submit">
+                <Button variant="default" className="w-full">
                   Save
                 </Button>
               </AlertDialogTrigger>
@@ -136,8 +139,14 @@ const NewsletterForm = () => {
                   <AlertDialogCancel className=" mt-0 w-full">
                     Cancel
                   </AlertDialogCancel>
-                  <AlertDialogAction className="w-full">
-                    Continue
+                  <AlertDialogAction
+                    type="button"
+                    onClick={() => {
+                      form.handleSubmit(onSubmit)();
+                    }}
+                    className="w-full"
+                  >
+                    Continuar
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
