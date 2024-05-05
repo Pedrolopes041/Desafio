@@ -29,10 +29,10 @@ const Header = () => {
             </MenubarTrigger>
             <MenubarContent>
               <Link href="/">
-                <MenubarItem>Perfil</MenubarItem>
+                <MenubarItem>Profile</MenubarItem>
               </Link>
               <Link href="/perfil">
-                <MenubarItem>Editar</MenubarItem>
+                <MenubarItem>Edit</MenubarItem>
               </Link>
             </MenubarContent>
           </MenubarMenu>

@@ -29,16 +29,16 @@ import {
 } from "./ui/alert-dialog";
 
 const formSchema = z.object({
-  nome: z.string().min(2, {
+  name: z.string().min(2, {
     message: "Preencha o campo",
   }),
-  idade: z.coerce.number().min(2, {
+  age: z.coerce.number().min(2, {
     message: "Preencha o campo",
   }),
-  endereco: z.string().min(2, {
+  street: z.string().min(2, {
     message: "Preencha o campo",
   }),
-  biografia: z.string().min(2, {
+  biography: z.string().min(2, {
     message: "Preencha o campo",
   }),
 });
@@ -48,10 +48,10 @@ const NewsletterForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      nome: "",
-      idade: 0,
-      endereco: "",
-      biografia: "",
+      name: "",
+      age: 0,
+      street: "",
+      biography: "",
     },
   });
 
@@ -71,7 +71,7 @@ const NewsletterForm = () => {
           >
             <FormField
               control={form.control}
-              name="nome"
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
@@ -84,7 +84,7 @@ const NewsletterForm = () => {
             />
             <FormField
               control={form.control}
-              name="idade"
+              name="age"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Age</FormLabel>
@@ -97,7 +97,7 @@ const NewsletterForm = () => {
             />
             <FormField
               control={form.control}
-              name="endereco"
+              name="street"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Address</FormLabel>
@@ -110,7 +110,7 @@ const NewsletterForm = () => {
             />
             <FormField
               control={form.control}
-              name="biografia"
+              name="biography"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Biography</FormLabel>
