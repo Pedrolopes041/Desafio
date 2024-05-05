@@ -6,7 +6,6 @@ import NewsletterForm from "../_components/newletter-form";
 const Home = () => {
   return (
     <>
-      <Header/>
       <NewsletterForm />
     </>
   );

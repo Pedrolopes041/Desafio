@@ -16,7 +16,7 @@ const Header = () => {
       <CardContent className="p-5 justify-between items-center flex flex-row">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>Usuário</AvatarFallback>
+          <AvatarFallback>A</AvatarFallback>
         </Avatar>
 
         <Menubar>
