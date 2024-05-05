@@ -129,8 +129,7 @@ const NewsletterForm = () => {
                 <AlertDialogHeader>
                   <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Once cancelled, it will not be possible to reverse this
-                    action.
+                    Are you sure you want to change the information?
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter className="flex flex-row gap-3">
