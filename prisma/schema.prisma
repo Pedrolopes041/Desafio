@@ -14,12 +14,10 @@ datasource db {
 }
 
 model Pessoa {
-  id             Int    @id @default(autoincrement())
-  imagemDePerfil String
-  nome           String
-  idade          Int
-  rua            String
-  bairro         String
-  estado         String
-  biografia      String
+  id           Int    @id @default(autoincrement())
+  profileImage String
+  name         String
+  age          Int
+  street       String
+  biography    String
 }

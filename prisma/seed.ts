@@ -7,13 +7,11 @@ async function main() {
     // Inserir uma pessoa na tabela Pessoa
     await prisma.pessoa.create({
       data: {
-        imagemDePerfil: 'caminho/para/imagem1.jpg',
-        nome: 'João',
-        idade: 30,
-        rua: 'Rua A',
-        bairro: 'Bairro X',
-        estado: 'Estado 1',
-        biografia: 'Descrição da biografia do João'
+        profileImage: 'caminho/para/imagem1.jpg',
+        name: 'João',
+        age: 30,
+        street: 'Rua A',
+        biography: 'Descrição da biografia do João'
       }
     });
 
