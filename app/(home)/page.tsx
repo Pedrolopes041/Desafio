@@ -2,11 +2,15 @@ import { db } from "../_lib/prisma";
 import CardItem from "../_components/card";
 
 const Perfil = async () => {
+
   /*Informação banco de dados puxando */
+  const pessoas = await db.pessoa.findMany({});
 
   return (
     <>
-      <CardItem />
+      {pessoas.map((pessoa) => (
+        <CardItem key={pessoa.id} PessoaId={pessoa} />
+      ))}
     </>
   );
 };
