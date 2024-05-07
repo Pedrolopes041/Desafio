@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
@@ -25,7 +24,6 @@ export const POST = async (req: Request) => {
         street,
       },
     });
-    revalidatePath("/api/user")
     return NextResponse.json({updatedUser});
   } catch (error: any) {
     throw new Error("Erro ao atualizar pessoa: " + error.message);
