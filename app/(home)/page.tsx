@@ -1,18 +1,18 @@
-import { db } from "../_lib/prisma";
 import CardItem from "../_components/card";
+import { getUser } from "../api/user/route";
 
-const Perfil = async () => {
+const Profile = async () => {
+  const user = await getUser();
 
-  /*Informação banco de dados puxando */
-  const pessoas = await db.pessoa.findMany({});
+  if (!user) {
+    return null;
+  }
 
   return (
     <>
-      {pessoas.map((pessoa) => (
-        <CardItem key={pessoa.id} PessoaId={pessoa} />
-      ))}
+      <CardItem age={user.age} biography={user.biography} name={user.name} street={user.street} />
     </>
   );
 };
 
-export default Perfil;
+export default Profile;

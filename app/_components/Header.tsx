@@ -27,7 +27,7 @@ const Header = () => {
             <MenubarTrigger>
               <MenuIcon />
             </MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="flex flex-col justify-center items-center">
               <Link href="/">
                 <MenubarItem>Profile</MenubarItem>
               </Link>
