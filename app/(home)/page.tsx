@@ -3,15 +3,13 @@
 import CardItem from "../_components/card";
 
 const Profile = async () => {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/user`, {
+  const {user} = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/user`, {
     method: "GET",
-  });
+  }).then((res) => res.json());
 
-  if (!data.ok) return undefined;
-  const {user} = await data.json();
 
-  console.log(user);
 
+  console.log(user)
   if (!user) {
     return null;
   }
