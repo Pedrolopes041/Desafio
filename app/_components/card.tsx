@@ -4,6 +4,7 @@ import { Button } from "../_components/ui/button";
 import Link from "next/link";
 
 import { UserProps } from "../api/user/route";
+import { Badge } from "./ui/badge";
 
 const CardItem = async ({ age, biography, name, street }: UserProps) => {
   return (
@@ -21,37 +22,34 @@ const CardItem = async ({ age, biography, name, street }: UserProps) => {
           </div>
 
           <div className="mt-6 flex flex-col gap-6">
-            <div className="space-x-4 rounded-md border p-4">
+            <div>
+              <p className="text-2xl font-light">{name}</p>
+            </div>
+            <div>
+              <p className="text-sm font-thin">
+                {age}
+                <span> anos</span>
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-light">{biography}</p>
+            </div>
+            <div className="flex gap-3">
+              <Image src="/map-pin.svg" alt="icon" width={20} height={20} />
+              <p className="text-sm font-light">Pernambuco</p>
+            </div>
+
+            <div className="flex gap-3">
               <div>
-                <p className="text-sm font-medium leading-none">
-                  {name}
-                </p>
+                <Badge className="text-sm font-normal" variant="secondary">Subestação</Badge>
+              </div>
+              <div>
+              <Badge className="text-sm font-normal" variant="secondary">{street}</Badge>
               </div>
             </div>
-            <div className="space-x-4 rounded-md border p-4">
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  {age}
-                  <span> anos</span>
-                </p>
-              </div>
-            </div>
-            <div className="space-x-4 rounded-md border p-4">
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  {street}
-                </p>
-              </div>
-            </div>
-            <div className="space-x-4 rounded-md border p-4">
-              <div>
-                <p className="text-sm font-medium leading-normal">
-                  {biography}
-                </p>
-              </div>
-            </div>
+
             <Link href="/perfil" className="w-full">
-              <Button variant="destructive" className="mt-6 w-full">
+              <Button variant="default" className="mt-6 w-full">
                 Edit
               </Button>
             </Link>

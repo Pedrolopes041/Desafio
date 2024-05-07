@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -27,19 +28,20 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./ui/alert-dialog";
+import { Textarea } from "./ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Preencha o campo",
+    message: "fill in the name",
   }),
   age: z.coerce.number().min(2, {
-    message: "Preencha o campo",
+    message: "fill in the age",
   }),
   street: z.string().min(2, {
-    message: "Preencha o campo",
+    message: "fill int the street",
   }),
   biography: z.string().min(2, {
-    message: "Preencha o campo",
+    message: "fill in the biography",
   }),
 });
 
@@ -55,6 +57,12 @@ const NewsletterForm = () => {
     },
   });
 
+  const router = useRouter();
+
+  const HandleHomePage = () => {
+    router.push("/");
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const { name, age, biography, street } = values;
     try {
@@ -68,11 +76,8 @@ const NewsletterForm = () => {
         }),
       });
       setIsAlertOpen(false);
-      console.log("Pessoa atualizada com sucesso!");
-    } catch (error) {
-      console.error("Erro ao atualizar pessoa:", error);
-    }
-    console.log(onSubmit);
+      HandleHomePage();
+    } catch (error) {}
   };
 
   return (
@@ -131,7 +136,7 @@ const NewsletterForm = () => {
                   <FormItem>
                     <FormLabel>Biography</FormLabel>
                     <FormControl>
-                      <Input placeholder="Biography" {...field} />
+                      <Textarea placeholder="Type your message here." {...field}/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -163,7 +168,7 @@ const NewsletterForm = () => {
                       }}
                       className="w-full"
                     >
-                      Continuar
+                      Continue
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
