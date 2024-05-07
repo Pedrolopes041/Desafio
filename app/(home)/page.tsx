@@ -7,6 +7,7 @@ const Profile = async () => {
     method: "GET",
   });
 
+  if (!data.ok) return undefined;
   const {user} = await data.json();
 
   console.log(user);
