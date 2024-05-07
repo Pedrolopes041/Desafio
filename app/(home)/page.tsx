@@ -1,8 +1,15 @@
+"use server";
+
 import CardItem from "../_components/card";
-import { getUser } from "../api/user/route";
 
 const Profile = async () => {
-  const user = await getUser();
+  const data = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/user`, {
+    method: "GET",
+  });
+
+  const {user} = await data.json();
+
+  console.log(user);
 
   if (!user) {
     return null;
@@ -10,7 +17,12 @@ const Profile = async () => {
 
   return (
     <>
-      <CardItem age={user.age} biography={user.biography} name={user.name} street={user.street} />
+      <CardItem
+        age={user.age}
+        biography={user.biography}
+        name={user.name}
+        street={user.street}
+      />
     </>
   );
 };

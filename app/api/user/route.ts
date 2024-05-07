@@ -30,12 +30,13 @@ export const PUT = async (req: Request) => {
   }
 };
 
-export const getUser = async () => {
+export const GET = async () => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: 1 },
     });
-    return user;
+    console.log(user)
+    return NextResponse.json({user});
   } catch (error: any) {
     throw new Error("Erro ao atualizar pessoa: " + error.message);
   }
