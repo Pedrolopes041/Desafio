@@ -11,7 +11,7 @@ export interface UserProps {
   profileImage?: string;
 }
 
-export const PUT = async (req: Request) => {
+export const POST = async (req: Request) => {
   const { age, biography, name, street } = await req.json();
 
   try {

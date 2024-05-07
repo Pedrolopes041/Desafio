@@ -59,7 +59,7 @@ const NewsletterForm = () => {
     const { name, age, biography, street } = values;
     try {
       await fetch(`/api/user`, {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify({
           name,
           age,
