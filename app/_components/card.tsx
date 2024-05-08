@@ -46,14 +46,20 @@ const CardItem = async ({
               <p className="text-sm font-normal ">{state}</p>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 lg:flex-row">
               <div>
-                <Badge className="text-center text-sm font-normal text-ellipsis overflow-hidden p-2" variant="secondary">
+                <Badge
+                  className="text-sm text-gray-400 overflow-hidden text-ellipsis text-nowrap"
+                  variant="secondary"
+                >
                   {neighborhood}
                 </Badge>
               </div>
               <div>
-                <Badge className="text-sm font-normal overflow-hidden text-ellipsis p-2" variant="secondary">
+                <Badge
+                  className="text-sm text-gray-400 overflow-hidden text-ellipsis text-nowrap"
+                  variant="secondary"
+                >
                   {street}
                 </Badge>
               </div>

@@ -29,6 +29,7 @@ import {
   AlertDialogTrigger,
 } from "./ui/alert-dialog";
 import { Textarea } from "./ui/textarea";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -53,6 +54,8 @@ const formSchema = z.object({
 
 const NewsletterForm = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [loading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -73,6 +76,7 @@ const NewsletterForm = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const { name, age, biography, street, neighborhood, state } = values;
+    setIsLoading(true);
     try {
       await fetch(`/api/user`, {
         method: "POST",
@@ -87,7 +91,10 @@ const NewsletterForm = () => {
       });
       setIsAlertOpen(false);
       HandleHomePage();
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -207,6 +214,7 @@ const NewsletterForm = () => {
                       }}
                       className="w-full"
                     >
+                      {loading && <Loader2 className="mr-2 h-4 animate-ping" />}
                       Continue
                     </AlertDialogAction>
                   </AlertDialogFooter>
