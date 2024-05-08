@@ -36,6 +36,25 @@
   }
 }
 
+/* Adicione esta parte no final do arquivo */
+@keyframes pulse {
+  8%, 100% {
+    color: #fff;
+    filter: blur(2px);
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #fff;
+  }
+  5%, 95% {
+    color: #fff;
+    filter: blur(0px);
+    text-shadow: none;
+  }
+}
+
+.animate-pulse-custom {
+  animation: pulse 1s infinite;
+}
+
+
 @layer base {
   * {
     @apply border-border;

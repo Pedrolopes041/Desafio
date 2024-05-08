@@ -15,12 +15,9 @@ const Header = () => {
   return (
     <Card>
       <CardContent className="p-5 justify-between items-center flex flex-row">
-        <Avatar>
           <Link href="/">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>A</AvatarFallback>
+            <h2 className="text-xl animate-pulse">Form Update</h2>
           </Link>
-        </Avatar>
 
         <Menubar>
           <MenubarMenu>
