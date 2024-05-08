@@ -31,7 +31,7 @@ const Header = () => {
               <Link href="/">
                 <MenubarItem>Profile</MenubarItem>
               </Link>
-              <Link href="/perfil">
+              <Link href="/profile">
                 <MenubarItem>Edit</MenubarItem>
               </Link>
             </MenubarContent>

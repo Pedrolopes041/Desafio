@@ -39,27 +39,27 @@ const CardItem = async ({
               </p>
             </div>
             <div>
-              <p className="text-sm font-normal">{biography}</p>
+              <p className="text-sm font-normal text-justify ">{biography}</p>
             </div>
             <div className="flex gap-3">
               <Image src="/map-pin.svg" alt="icon" width={20} height={20} />
-              <p className="text-sm font-normal">{state}</p>
+              <p className="text-sm font-normal ">{state}</p>
             </div>
 
             <div className="flex gap-3">
               <div>
-                <Badge className="text-sm font-normal" variant="secondary">
+                <Badge className="text-center text-sm font-normal text-ellipsis overflow-hidden p-2" variant="secondary">
                   {neighborhood}
                 </Badge>
               </div>
               <div>
-                <Badge className="text-sm font-normal" variant="secondary">
+                <Badge className="text-sm font-normal overflow-hidden text-ellipsis p-2" variant="secondary">
                   {street}
                 </Badge>
               </div>
             </div>
 
-            <Link href="/perfil" className="w-full">
+            <Link href="/profile" className="w-full">
               <Button variant="default" className="mt-6 w-full">
                 Edit
               </Button>
