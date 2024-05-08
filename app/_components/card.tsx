@@ -6,7 +6,14 @@ import Link from "next/link";
 import { UserProps } from "../api/user/route";
 import { Badge } from "./ui/badge";
 
-const CardItem = async ({ age, biography, name, street }: UserProps) => {
+const CardItem = async ({
+  age,
+  biography,
+  name,
+  street,
+  neighborhood,
+  state,
+}: UserProps) => {
   return (
     <div className="flex justify-center items-center p-6">
       <Card className="w-full p-4 md:w-[550px]">
@@ -23,28 +30,32 @@ const CardItem = async ({ age, biography, name, street }: UserProps) => {
 
           <div className="mt-6 flex flex-col gap-6">
             <div>
-              <p className="text-2xl font-light">{name}</p>
+              <p className="text-2xl font-bold">{name}</p>
             </div>
             <div>
-              <p className="text-sm font-thin">
+              <p className="text-sm font-normal">
                 {age}
                 <span> anos</span>
               </p>
             </div>
             <div>
-              <p className="text-sm font-light">{biography}</p>
+              <p className="text-sm font-normal">{biography}</p>
             </div>
             <div className="flex gap-3">
               <Image src="/map-pin.svg" alt="icon" width={20} height={20} />
-              <p className="text-sm font-light">Pernambuco</p>
+              <p className="text-sm font-normal">{state}</p>
             </div>
 
             <div className="flex gap-3">
               <div>
-                <Badge className="text-sm font-normal" variant="secondary">Subestação</Badge>
+                <Badge className="text-sm font-normal" variant="secondary">
+                  {neighborhood}
+                </Badge>
               </div>
               <div>
-              <Badge className="text-sm font-normal" variant="secondary">{street}</Badge>
+                <Badge className="text-sm font-normal" variant="secondary">
+                  {street}
+                </Badge>
               </div>
             </div>
 

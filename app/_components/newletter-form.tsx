@@ -37,6 +37,12 @@ const formSchema = z.object({
   age: z.coerce.number().min(2, {
     message: "fill in the age",
   }),
+  state: z.string().min(2, {
+    message: "fill int the state",
+  }),
+  neighborhood: z.string().min(2, {
+    message: "fill int the neighborhood",
+  }),
   street: z.string().min(2, {
     message: "fill int the street",
   }),
@@ -45,6 +51,8 @@ const formSchema = z.object({
   }),
 });
 
+
+
 const NewsletterForm = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -52,6 +60,8 @@ const NewsletterForm = () => {
     defaultValues: {
       name: "",
       age: 0,
+      state: "",
+      neighborhood: "",
       street: "",
       biography: "",
     },
@@ -111,6 +121,32 @@ const NewsletterForm = () => {
                     <FormLabel>Age</FormLabel>
                     <FormControl>
                       <Input type="number" placeholder="Age" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="state"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>State</FormLabel>
+                    <FormControl>
+                      <Input placeholder="State" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="neighborhood"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Neighborhood</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Neighborhood" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -9,10 +9,12 @@ export interface UserProps {
   street: string;
   biography: string;
   profileImage?: string;
+  state: string;
+  neighborhood: string;
 }
 
 export const POST = async (req: Request) => {
-  const { age, biography, name, street } = await req.json();
+  const { age, biography, name, street, state, neighborhood } = await req.json();
 
   try {
     const updatedUser = await prisma.user.update({
@@ -22,6 +24,8 @@ export const POST = async (req: Request) => {
         biography,
         name,
         street,
+        state,
+        neighborhood,
       },
     });
     return NextResponse.json({updatedUser});

@@ -22,6 +22,8 @@ const Profile = async () => {
         biography={user.biography}
         name={user.name}
         street={user.street}
+        neighborhood={user.neighborhood}
+        state={user.state}
       />
     </>
   );
