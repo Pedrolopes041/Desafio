@@ -8,9 +8,6 @@ const Profile = async () => {
     cache: "no-cache"
   }).then((res) => res.json());
 
-
-
-  console.log(user)
   if (!user) {
     return null;
   }

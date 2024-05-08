@@ -39,7 +39,6 @@ export const GET = async () => {
     const user = await prisma.user.findUnique({
       where: { id: 1 },
     });
-    console.log(user)
     return NextResponse.json({user});
   } catch (error: any) {
     throw new Error("Erro ao atualizar pessoa: " + error.message);
