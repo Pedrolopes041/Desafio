@@ -49,7 +49,7 @@ const CardItem = async ({
             <div className="flex flex-col gap-3 lg:flex-row">
               <div>
                 <Badge
-                  className="text-sm text-gray-400 overflow-hidden text-ellipsis text-nowrap"
+                  className="text-sm text-gray-400 overflow-hidden text-ellipsis"
                   variant="secondary"
                 >
                   {neighborhood}
@@ -57,7 +57,7 @@ const CardItem = async ({
               </div>
               <div>
                 <Badge
-                  className="text-sm text-gray-400 overflow-hidden text-ellipsis text-nowrap"
+                  className="text-sm text-gray-400 overflow-hidden text-ellipsis"
                   variant="secondary"
                 >
                   {street}
