@@ -51,8 +51,6 @@ const formSchema = z.object({
   }),
 });
 
-
-
 const NewsletterForm = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -74,7 +72,7 @@ const NewsletterForm = () => {
   };
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const { name, age, biography, street } = values;
+    const { name, age, biography, street, neighborhood, state } = values;
     try {
       await fetch(`/api/user`, {
         method: "POST",
@@ -83,6 +81,8 @@ const NewsletterForm = () => {
           age,
           street,
           biography,
+          state,
+          neighborhood,
         }),
       });
       setIsAlertOpen(false);
@@ -172,7 +172,10 @@ const NewsletterForm = () => {
                   <FormItem>
                     <FormLabel>Biography</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Type your message here." {...field}/>
+                      <Textarea
+                        placeholder="Type your message here."
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
