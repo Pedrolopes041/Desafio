@@ -31,24 +31,36 @@ import {
 import { Textarea } from "./ui/textarea";
 import { Loader2 } from "lucide-react";
 
+const estados = ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Espírito Santo', 'Goiás', 'Maranhão', 'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'];
+
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "fill in the name",
+    message: "Fill in the name",
+  }).max(50, {
+    message: "You have exceeded the character limit"
   }),
-  age: z.coerce.number().min(2, {
-    message: "fill in the age",
+  age: z.coerce.number().positive().min(2, {
+    message: "Fill in the age",
+  }).max(100, {
+    message: "Age must be less than or equal to 100",
   }),
-  state: z.string().min(2, {
-    message: "fill int the state",
+  state: z.string().transform(value => value.charAt(0).toUpperCase() + value.slice(1)).refine(value => value.length >= 4, {
+    message: "Fill in the state with at least 4 characters",
+  }).refine(value => estados.includes(value), {
+    message: "Please select a valid state",
   }),
   neighborhood: z.string().min(2, {
-    message: "fill int the neighborhood",
+    message: "Fill int the neighborhood",
+  }).max(50, {
+    message: "Neighborhood must be less than or equal to 50",
   }),
   street: z.string().min(2, {
-    message: "fill int the street",
+    message: "Fill int the street",
+  }).max(50, {
+    message: "Street must be less than or equal to 50",
   }),
   biography: z.string().min(2, {
-    message: "fill in the biography",
+    message: "Fill in the biography",
   }),
 });
 
