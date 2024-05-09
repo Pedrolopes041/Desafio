@@ -38,21 +38,24 @@
 
 /* Adicione esta parte no final do arquivo */
 @keyframes pulse {
-  8%, 100% {
-    color: #fff;
-    filter: blur(2px);
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #fff;
+  0% {
+    color: #000; /* Cor inicial do texto: preto */
+    text-shadow: none; /* Sem sombra */
   }
-  5%, 95% {
-    color: #fff;
-    filter: blur(0px);
-    text-shadow: none;
+  50% {
+    color: #fff; /* Cor do texto: branco */
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 20px #fff; /* Sombra para o efeito de brilho */
+  }
+  100% {
+    color: #000; /* Voltar para a cor preta */
+    text-shadow: none; /* Remover sombra */
   }
 }
 
 .animate-pulse-custom {
-  animation: pulse 1s infinite;
+  animation: pulse 2s infinite; /* Ajuste a duração da animação conforme necessário */
 }
+
 
 
 @layer base {

@@ -16,7 +16,7 @@ const Header = () => {
     <Card>
       <CardContent className="p-5 justify-between items-center flex flex-row">
           <Link href="/">
-            <h2 className="text-xl animate-pulse">Form Update</h2>
+            <h2 className="text-xl animate-pulse">Form <span className="animate-pulse">Update</span></h2>
           </Link>
 
         <Menubar>
