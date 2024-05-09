@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## :memo: Sobre
 
-## Getting Started
+Bem-vindo à nossa aplicação web dinâmica, projetada para simplificar o processo de envio de informações e proporcionar atualizações em tempo real na página inicial.
 
-First, run the development server:
 
-```bash
+## :clipboard: Requisitos funcionais
+
+1. Validação de Dados: O formulário deve incluir validação de dados para garantir que as informações fornecidas pelos usuários sejam precisas e válidas antes de serem enviadas.;
+2. Atualização em Tempo Real: Após o envio do formulário, as informações inseridas pelos usuários devem ser atualizadas em tempo real na tela principal do site, fornecendo feedback imediato sobre as alterações feitas.;
+3. Compatibilidade com Dispositivos Móveis: Além de ser responsivo, o site deve ser otimizado para dispositivos móveis, garantindo uma experiência de usuário agradável em smartphones e tablets.;
+
+---
+
+
+## 🚀 Tecnologias principais
+
+- [Reactjs](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
+
+---
+
+Para utilizar a aplicação em seu computador local siga os passos abaixo :point_down:
+
+````
+- Instale as dependências:
+npm i 
+
+- Utilizando a aplicação local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+````
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Made by [Pedro Augusto](https://www.linkedin.com/in/pedro-augusto-lopes-gomes/) ! 💙
