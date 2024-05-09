@@ -31,8 +31,6 @@ import {
 import { Textarea } from "./ui/textarea";
 import { Loader2 } from "lucide-react";
 
-const estados = ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Espírito Santo', 'Goiás', 'Maranhão', 'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'];
-
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Fill in the name",
@@ -44,10 +42,10 @@ const formSchema = z.object({
   }).max(100, {
     message: "Age must be less than or equal to 100",
   }),
-  state: z.string().transform(value => value.charAt(0).toUpperCase() + value.slice(1)).refine(value => value.length >= 4, {
+  state: z.string().min(4, {
     message: "Fill in the state with at least 4 characters",
-  }).refine(value => estados.includes(value), {
-    message: "Please select a valid state",
+  }).max(50, {
+    message: "state must be less than or equal to 50",
   }),
   neighborhood: z.string().min(2, {
     message: "Fill int the neighborhood",

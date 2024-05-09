@@ -35,7 +35,7 @@ const CardItem = async ({
             <div>
               <p className="text-sm font-normal">
                 {age}
-                <span> anos</span>
+                <span> years</span>
               </p>
             </div>
             <div>
