@@ -28,35 +28,60 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./ui/alert-dialog";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+
 import { Textarea } from "./ui/textarea";
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Fill in the name",
-  }).max(50, {
-    message: "You have exceeded the character limit"
-  }),
-  age: z.coerce.number().positive().min(2, {
-    message: "Fill in the age",
-  }).max(100, {
-    message: "Age must be less than or equal to 100",
-  }),
-  state: z.string().min(4, {
-    message: "Fill in the state with at least 4 characters",
-  }).max(50, {
-    message: "state must be less than or equal to 50",
-  }),
-  neighborhood: z.string().min(2, {
-    message: "Fill int the neighborhood",
-  }).max(50, {
-    message: "Neighborhood must be less than or equal to 50",
-  }),
-  street: z.string().min(2, {
-    message: "Fill int the street",
-  }).max(50, {
-    message: "Street must be less than or equal to 50",
-  }),
+  name: z
+    .string()
+    .min(2, {
+      message: "Fill in the name",
+    })
+    .max(50, {
+      message: "You have exceeded the character limit",
+    }),
+  age: z.coerce
+    .number()
+    .positive()
+    .min(2, {
+      message: "Fill in the age",
+    })
+    .max(100, {
+      message: "Age must be less than or equal to 100",
+    }),
+  state: z
+    .string()
+    .min(4, {
+      message: "Fill in the state with at least 4 characters",
+    })
+    .max(50, {
+      message: "state must be less than or equal to 50",
+    }),
+  neighborhood: z
+    .string()
+    .min(2, {
+      message: "Fill int the neighborhood",
+    })
+    .max(50, {
+      message: "Neighborhood must be less than or equal to 50",
+    }),
+  street: z
+    .string()
+    .min(2, {
+      message: "Fill int the street",
+    })
+    .max(50, {
+      message: "Street must be less than or equal to 50",
+    }),
   biography: z.string().min(2, {
     message: "Fill in the biography",
   }),
@@ -150,7 +175,68 @@ const NewsletterForm = () => {
                   <FormItem>
                     <FormLabel>State</FormLabel>
                     <FormControl>
-                      <Input placeholder="State" {...field} />
+                      <Select
+                        value={field.value}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger
+                          className="w-full md:w-[280px]"
+                          aria-label="Select a timezone"
+                        >
+                          <SelectValue placeholder="Select a state" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectItem value="Acre">Acre</SelectItem>
+                            <SelectItem value="Alagoas">Alagoas</SelectItem>
+                            <SelectItem value="Amapá">Amapá</SelectItem>
+                            <SelectItem value="Amazonas">Amazonas</SelectItem>
+                            <SelectItem value="Bahia">Bahia</SelectItem>
+                            <SelectItem value="Ceará">Ceará</SelectItem>
+                            <SelectItem value="Distrito Federal">
+                              Distrito Federal
+                            </SelectItem>
+                            <SelectItem value="Espírito Santo">
+                              Espírito Santo
+                            </SelectItem>
+                            <SelectItem value="Goiás">Goiás</SelectItem>
+                            <SelectItem value="Maranhão">Maranhão</SelectItem>
+                            <SelectItem value="Mato Grosso">
+                              Mato Grosso
+                            </SelectItem>
+                            <SelectItem value="Mato Grosso do Sul">
+                              Mato Grosso do Sul
+                            </SelectItem>
+                            <SelectItem value="Minas Gerais">
+                              Minas Gerais
+                            </SelectItem>
+                            <SelectItem value="Pará">Pará</SelectItem>
+                            <SelectItem value="Paraíba">Paraíba</SelectItem>
+                            <SelectItem value="Paraná">Paraná</SelectItem>
+                            <SelectItem value="Pernambuco">
+                              Pernambuco
+                            </SelectItem>
+                            <SelectItem value="Piauí">Piauí</SelectItem>
+                            <SelectItem value="Rio de Janeiro">
+                              Rio de Janeiro
+                            </SelectItem>
+                            <SelectItem value="Rio Grande do Norte">
+                              Rio Grande do Norte
+                            </SelectItem>
+                            <SelectItem value="Rio Grande do Sul">
+                              Rio Grande do Sul
+                            </SelectItem>
+                            <SelectItem value="Rondônia">Rondônia</SelectItem>
+                            <SelectItem value="Roraima">Roraima</SelectItem>
+                            <SelectItem value="Santa Catarina">
+                              Santa Catarina
+                            </SelectItem>
+                            <SelectItem value="São Paulo">São Paulo</SelectItem>
+                            <SelectItem value="Sergipe">Sergipe</SelectItem>
+                            <SelectItem value="Tocantins">Tocantins</SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
                     </FormControl>
                     <FormMessage />
                   </FormItem>

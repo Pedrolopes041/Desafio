@@ -14,7 +14,8 @@ export interface UserProps {
 }
 
 export const POST = async (req: Request) => {
-  const { age, biography, name, street, state, neighborhood } = await req.json();
+  const { age, biography, name, street, state, neighborhood } =
+    await req.json();
 
   try {
     const updatedUser = await prisma.user.update({
@@ -28,7 +29,7 @@ export const POST = async (req: Request) => {
         neighborhood,
       },
     });
-    return NextResponse.json({updatedUser});
+    return NextResponse.json({ updatedUser });
   } catch (error: any) {
     throw new Error("Erro ao atualizar pessoa: " + error.message);
   }
@@ -39,7 +40,7 @@ export const GET = async () => {
     const user = await prisma.user.findUnique({
       where: { id: 1 },
     });
-    return NextResponse.json({user});
+    return NextResponse.json({ user });
   } catch (error: any) {
     throw new Error("Erro ao atualizar pessoa: " + error.message);
   }
