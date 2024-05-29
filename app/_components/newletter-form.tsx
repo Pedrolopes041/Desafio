@@ -180,7 +180,7 @@ const NewsletterForm = () => {
                         onValueChange={field.onChange}
                       >
                         <SelectTrigger
-                          className="w-full md:w-[280px]"
+                          className="w-full"
                           aria-label="Select a timezone"
                         >
                           <SelectValue placeholder="Select a state" />
